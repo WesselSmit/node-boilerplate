@@ -1,0 +1,15 @@
+# binary apple files
+**/.DS_Store
+
+# node_modules
+node_modules
+
+# environment variables 
+**/.env
+
+# compiled assets
+dist/styles
+dist/scripts
+
+# formatter extension config
+.jsbeautifyrc
