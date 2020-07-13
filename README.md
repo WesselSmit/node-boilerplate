@@ -32,7 +32,7 @@ npm install
 
 This boilerplate comes with a collection of npm scripts to make your life easier, you'll run them with `npm run <script name>` or `yarn run <script name>`:
 
-* `dev`: Run aplication in development mode and watch all 
+* `dev`: Run aplication in development mode, watches **src/client** folder for changes and reloads browser
 * `start`: Run application in production mode
 * `clean`: Delete all compiled styles, scripts and sourcemaps outputted to **dist** folder (used in `dev` and `start`)
 * `build`: Build all styles and scripts according to the **gulpfile.js** (used in `dev` and `start`)
