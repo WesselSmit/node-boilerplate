@@ -51,7 +51,6 @@ This boilerplate comes with a collection of npm scripts to make your life easier
 
 ### Building Styles
 
-Features: 
 * compile .scss (incuding `@import`'s)
 * minify
 * add vendor prefixes
@@ -59,7 +58,6 @@ Features:
 
 ### Building Scripts
 
-Features: 
 * module bundling
 * transpile modern JS (ES6+)
 * uglify
@@ -67,6 +65,26 @@ Features:
 
 ## Notes
 
-nodemon.json hack with delay 
+### File Extensions
 
-EJS
+When using this boilerplate out-of-the-box it expects certain file extensions as input;
+* the default templating engine is [EJS](https://ejs.co/)
+* use [.scss](https://sass-lang.com/) for styling
+* use .js (optionally .mjs) for scripting
+
+### Nodemon delay
+
+This boilerplate uses nodemon to restart the server and browser-sync to update the browser, this can cause problems with ports not being freed up in time for the restart.
+
+To fix this nodemon is delayed (see [nodemon.json](https://github.com/WesselSmit/node-boilerplate/blob/master/nodemon.json)).
+
+**EADDRINUSE**
+
+```
+Error: listen EADDRINUSE: address already in use :::3000
+```
+
+If your app crashes with an EADDRINUSE error, the port is not freed up in time. To fix this you'll have to increase the [nodemon.json](https://github.com/WesselSmit/node-boilerplate/blob/master/nodemon.json) delay.
+
+>NOTE: This is a very 'hacky' fix and could maybe be prevented by replacing nodemon with [gulp-nodemon](https://github.com/JacksonGariety/gulp-nodemon), also see [issue]()
+
