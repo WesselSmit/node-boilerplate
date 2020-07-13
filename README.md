@@ -86,5 +86,5 @@ Error: listen EADDRINUSE: address already in use :::3000
 
 If your app crashes with an EADDRINUSE error, the port is not freed up in time. To fix this you'll have to increase the [nodemon.json](https://github.com/WesselSmit/node-boilerplate/blob/master/nodemon.json) delay.
 
->NOTE: This is a very 'hacky' fix and could maybe be prevented by replacing nodemon with [gulp-nodemon](https://github.com/JacksonGariety/gulp-nodemon), also see [issue]()
+>NOTE: This is a very 'hacky' fix and could maybe be prevented by replacing nodemon with [gulp-nodemon](https://github.com/JacksonGariety/gulp-nodemon), also see [issue](https://github.com/WesselSmit/node-boilerplate/issues/1)
 
