@@ -28,27 +28,14 @@ npm install
 
 ## How to use
 
-### Production
+### Scripts
 
-Use `production` when **using/viewing** the application
+This boilerplate comes with a collection of npm scripts to make your life easier, you'll run them with `npm run <script name>` or `yarn run <script name>`:
 
-```sh
-npm run start
-```
-
-This will start a server on localhost, the link to the app is in the console
-
-### Development
-
-Use `development` when **developing/testing** the application as it will watch all markup, style and script files
-
-```sh
-npm run dev
-```
-
-This will start a server on localhost and proxy it, link to the proxied app is in the console
-
-All markup, styles and scripts are automatically watched; markup and scripts will reload browser, styles are injected and won't trigger a browser reload
+* `dev`: Run aplication in development mode and watch all 
+* `start`: Run application in production mode
+* `clean`: Delete all compiled styles, scripts and sourcemaps outputted to **dist** folder (used in `dev` and `start`)
+* `build`: Build all styles and scripts according to the **gulpfile.js** (used in `dev` and `start`)
 
 ## Features
 
