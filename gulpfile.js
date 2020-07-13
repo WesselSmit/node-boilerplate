@@ -18,13 +18,15 @@ const uglify = require('gulp-uglify')
 
 
 const htmlToWatch = ['src/client/views/**/*.ejs']
+const stylesToWatch = ['src/client/styles/**/*.scss']
+const scriptsToWatch = ['src/client/scripts/**/*.js', 'src/client/scripts/**/*.mjs']
 
 task('watch', () => {
     browserSync.init({ proxy: `localhost:${port}` })
 
     watch(htmlToWatch).on('change', task('reload'))
-    watch(cssToWatch).on('change', task('styles'))
-    watch(jsToWatch).on('change', series('scripts', 'reload'))
+    watch(stylesToWatch).on('change', task('styles'))
+    watch(scriptsToWatch).on('change', series('scripts', 'reload'))
 })
 
 
@@ -37,7 +39,6 @@ task('reload', () => {
 
 
 
-const cssToWatch = ['src/client/styles/**/*.scss']
 const cssEntryPoints = ['src/client/styles/master.scss']
 
 task('styles', () => {
@@ -55,7 +56,6 @@ task('styles', () => {
 
 
 
-const jsToWatch = ['src/client/scripts/**/*.js', 'src/client/scripts/**/*.mjs']
 const jsEntryPoints = ['src/client/scripts/master.js']
 
 task('scripts', () => {
