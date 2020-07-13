@@ -45,9 +45,25 @@ This boilerplate comes with a collection of npm scripts to make your life easier
 
 ### File Watching
 
-`npm run dev` runs the application in development mode; meaning it builds all assets and then watches all **markup**, **style** and **script** files and automatically reloads the browser.
+`npm run dev` runs the application in development mode. It builds all and watches all **markup**, **style** and **script** files from **src/client**, changes to said files will trigger the associated build task and automatically reload the browser.
 
 >markup and script changes trigger full-page reload, style changes are injected into the page
+
+### Building Styles
+
+Features: 
+* compile .scss (incuding `@import`'s)
+* minify
+* add vendor prefixes
+* create sourcemaps
+
+### Building Scripts
+
+Features: 
+* module bundling
+* transpile modern JS (ES6+)
+* uglify
+* create sourcemaps
 
 ## Notes
 
