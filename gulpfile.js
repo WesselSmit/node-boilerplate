@@ -18,34 +18,6 @@ const uglify = require('gulp-uglify')
 
 
 
-const extensionsToWatch = {
-    styles: ['css', 'scss'],
-    scripts: ['js', 'mjs'],
-    views: ['hmtl', 'ejs']
-}
-
-//TODO: Deze variabelen kunnen weg
-const htmlToWatch = ['src/client/views/**/*.ejs']
-const stylesToWatch = ['src/client/styles/**/*.css', 'src/client/styles/**/*.scss']
-const scriptsToWatch = ['src/client/scripts/**/*.js', 'src/client/scripts/**/*.mjs']
-
-task('watch', () => {
-    browserSync.init({ proxy: `localhost:${port}` })
-
-    watch(htmlToWatch).on('change', task('reload'))
-    watch(stylesToWatch).on('change', task('styles'))
-    watch(scriptsToWatch).on('change', series('scripts', 'reload'))
-})
-
-
-
-//TODO: deze task kan weg
-task('reload', () => {
-    browserSync.reload()
-})
-
-
-
 
 const cssEntryPoints = ['src/client/styles/master.scss']
 
@@ -58,7 +30,6 @@ task('styles', () => {
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(sourcemaps.write('./sourcemaps'))
         .pipe(dest('./dist/styles'))
-        .pipe(browserSync.stream()) //TODO: deze 'pipe' kan weg
 })
 
 
@@ -84,23 +55,13 @@ task('scripts', () => {
 
 
 
-exports.build = parallel('styles', 'scripts')
-exports.watch = series(parallel('styles', 'scripts'), 'watch')
+const extToWatch = {
+    styles: ['css', 'scss'],
+    scripts: ['js', 'mjs'],
+    views: ['hmtl', 'ejs']
+}
 
-
-
-
-task('serve', done => {
-    browserSync.init({
-        proxy: `localhost:${port}`,
-        browser: 'google chrome',
-        port: 7000
-    })
-    done()
-})
-
-
-task('test', done => {
+task('watch', done => {
     return nodemon({
             script: 'server.js',
             ignore: ['dist', 'gulpfile.js'],
@@ -111,10 +72,10 @@ task('test', done => {
                 changedFiles.forEach(file => {
                     const dotExt = path.extname(file)
                     const ext = dotExt.split('.')[1]
-                    if (extensionsToWatch.scripts.includes(ext) && !tasks.includes('scripts')) {
+                    if (extToWatch.scripts.includes(ext) && !tasks.includes('scripts')) {
                         tasks.push('scripts')
                     }
-                    if (extensionsToWatch.styles.includes(ext) && !tasks.includes('styles')) {
+                    if (extToWatch.styles.includes(ext) && !tasks.includes('styles')) {
                         tasks.push('styles')
                     }
                 })
@@ -129,8 +90,17 @@ task('test', done => {
 
 
 
-exports.test = series('test')
-exports.serve = series('serve', 'test')
-//TODO: rename de exports + tasks
-//TODO: voordat de nodemon + watch gestart worden moeten de volgende gulp-tasks uitgevoerd worden: syltes, scripts
-//TODO: verwijder oude variabelen zoals cssToWatch etc.
+task('serve', done => {
+    browserSync.init({
+        proxy: `localhost:${port}`,
+        browser: 'google chrome',
+        port: 7000
+    })
+    done()
+})
+
+
+
+
+exports.builder = parallel('styles', 'scripts')
+exports.watcher = series(parallel('styles', 'scripts'), 'serve', 'watch')

@@ -1,15 +1,15 @@
 {
     "name": "node-boilerplate",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Boilerplate for nodeJS applications",
     "main": "server.js",
     "scripts": {
         "prestart": "npm run build",
         "start": "node server",
         "prebuild": "npm run clean",
-        "build": "gulp build",
+        "build": "gulp builder",
         "predev": "npm run clean",
-        "dev": "concurrently -r \"nodemon server\" \"gulp watch\"",
+        "dev": "gulp watcher",
         "clean": "rimraf dist/styles/* && rimraf dist/scripts/*",
         "test": "gulp test"
     },
@@ -34,7 +34,6 @@
         "@babel/core": "^7.10.5",
         "@babel/preset-env": "^7.10.4",
         "browser-sync": "^2.26.10",
-        "concurrently": "^5.2.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^7.0.1",
         "gulp-better-rollup": "^4.0.1",
