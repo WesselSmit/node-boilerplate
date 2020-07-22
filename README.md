@@ -41,40 +41,38 @@ This boilerplate comes with a collection of npm scripts to make your life easier
 * `clean`: Delete all compiled styles, scripts and sourcemaps outputted to **dist** folder (used in `dev` and `start`)
 * `build`: Build all styles and scripts according to the **gulpfile.js** (used in `dev` and `start`)
 
-## Notes
+## Usage
 
-### File Extensions
+### Templating Engine
 
-When using this boilerplate out-of-the-box it expects certain file extensions as input;
-* the default templating engine is [EJS](https://ejs.co/)
-* use [.scss](https://sass-lang.com/) for styling
-* use .js (optionally .mjs) for scripting
+This boilerplate uses the [EJS](https://ejs.co/) templating engine by default, uf you want to use a different templating engine you'll need to make some adjustments:
 
-### Gulp Watching
+1. Set your templating engine as default in Express
 
-See `extToWatch` variable in [gulpfiles.js](https://github.com/WesselSmit/node-boilerplate/blob/documentation/gulpfile.js) for all extensions that trigger gulp/build tasks.
+Express expects the extension not the full name of the templating engine, so `handlebars` is `hbs` etc.
 
-## Features
+```js
+app.set('view engine', 'TEMPLATING-ENGINE')
+```
 
-### File Watching
+2. Make sure Nodemon and Gulp are watching your templating files
 
-`npm run dev` runs the application in development mode. It builds and watches all files, changes to said files will trigger the associated build task and automatically reload the browser and server.
+The [gulpfiles.js](https://github.com/WesselSmit/node-boilerplate/blob/documentation/gulpfile.js) contains a `extToWatch` variable, make sure `extToWatch.views` contains your templating engine extension, if it's missing you'll have to add it.
 
-### Building Styles
+```js
+const extToWatch = {
+    styles: [...],
+    scripts: [...],
+    views: ['hmtl', 'ejs', 'TEMPLATING-ENGINE-EXTENSION']
+}
+```
 
->Expects `.scss` files as input
+### Styling
 
-* compile .scss (incuding `@import`'s)
-* minify
-* add vendor prefixes
-* create sourcemaps
+This boilerplate is configured for [SCSS](https://sass-lang.com/), if you want to use other preprocessors you'll have to rewrite the Gulp `styles` task and update the `extToWatch.styles` array.
 
-### Building Scripts
+### Scripting
 
->Expects `.js` or `.mjs` files as input
+This boilerplate is configured for vanilla JS (ES6+), if you want to use supersets of JS you'll have to rewrite the Gulp `scripts` task and update the `extToWatch.scripts` array.
 
-* module bundling
-* transpile modern JS (ES6+)
-* uglify
-* create sourcemaps
-
+>ES modules and ES6+ syntax are supported (since the Gulp `scripts` task uses rollup and babel)
