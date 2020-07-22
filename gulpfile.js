@@ -1,7 +1,7 @@
 require('dotenv').config()
 const port = process.env.PORT || 3000
 const path = require('path')
-const { src, dest, task, watch, parallel, series } = require('gulp')
+const { src, dest, task, parallel, series } = require('gulp')
 const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync').create()
 
@@ -19,7 +19,7 @@ const uglify = require('gulp-uglify')
 
 
 
-const cssEntryPoints = ['src/client/styles/master.scss']
+const cssEntryPoints = ['views/styles/master.scss']
 
 task('styles', () => {
     return src(cssEntryPoints)
@@ -29,13 +29,13 @@ task('styles', () => {
         .pipe(autoprefixer({ cascade: false }))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(sourcemaps.write('./sourcemaps'))
-        .pipe(dest('./dist/styles'))
+        .pipe(dest('./static/dist/styles'))
 })
 
 
 
 
-const jsEntryPoints = ['src/client/scripts/master.js']
+const jsEntryPoints = ['views/scripts/master.js']
 
 task('scripts', () => {
     return src(jsEntryPoints)
@@ -49,7 +49,7 @@ task('scripts', () => {
         }, { format: 'iife', }))
         .pipe(uglify())
         .pipe(sourcemaps.write('./sourcemaps'))
-        .pipe(dest('./dist/scripts'))
+        .pipe(dest('./static/dist/scripts'))
 })
 
 
@@ -64,7 +64,7 @@ const extToWatch = {
 task('watch', done => {
     return nodemon({
             script: 'server.js',
-            ignore: ['dist', 'gulpfile.js'],
+            ignore: ['static/dist', 'gulpfile.js'],
             ext: '*',
             tasks: changedFiles => {
                 const tasks = []

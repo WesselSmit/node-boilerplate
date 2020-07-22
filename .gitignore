@@ -8,5 +8,4 @@ node_modules
 **/.env
 
 # compiled assets
-dist/styles
-dist/scripts
+static/dist

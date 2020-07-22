@@ -10,7 +10,7 @@
         "build": "gulp builder",
         "predev": "npm run clean",
         "dev": "gulp watcher",
-        "clean": "rimraf dist/styles/* && rimraf dist/scripts/*"
+        "clean": "rimraf static/dist"
     },
     "repository": {
         "type": "git",

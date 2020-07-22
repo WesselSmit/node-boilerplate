@@ -8,8 +8,8 @@ const app = express()
 
 
 app
-    .use(express.static('dist'))
+    .use(express.static('static'))
     .set('view engine', 'ejs')
-    .set('views', 'src/client/views')
+    .set('views', 'views/templates')
     .get('/', (req, res) => res.render('index'))
     .listen(port, () => console.log(`visit app on http://localhost:${port}`))
