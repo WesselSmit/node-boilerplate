@@ -1,7 +1,7 @@
 {
-    "name": "planet-weather",
+    "name": "node-boilerplate",
     "version": "1.0.0",
-    "description": "Compare the weather of Mars and Earth",
+    "description": "Boilerplate for nodeJS applications",
     "main": "server.js",
     "scripts": {
         "prestart": "npm run build",
@@ -10,18 +10,19 @@
         "build": "gulp build",
         "predev": "npm run clean",
         "dev": "concurrently -r \"nodemon server\" \"gulp watch\"",
-        "clean": "rimraf dist/styles/* && rimraf dist/scripts/*"
+        "clean": "rimraf dist/styles/* && rimraf dist/scripts/*",
+        "test": "gulp test"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/WesselSmit/planet-weather.git"
+        "url": "git+https://github.com/WesselSmit/node-boilerplate.git"
     },
     "author": "Wessel Smit",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/WesselSmit/planet-weather/issues"
+        "url": "https://github.com/WesselSmit/node-boilerplate/issues"
     },
-    "homepage": "https://github.com/WesselSmit/planet-weather#readme",
+    "homepage": "https://github.com/WesselSmit/node-boilerplate#readme",
     "dependencies": {
         "core-js": "^3.6.5",
         "dotenv": "^8.2.0",
@@ -30,19 +31,20 @@
         "regenerator-runtime": "^0.13.5"
     },
     "devDependencies": {
-        "@babel/core": "^7.10.4",
+        "@babel/core": "^7.10.5",
         "@babel/preset-env": "^7.10.4",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.26.10",
         "concurrently": "^5.2.0",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^7.0.1",
         "gulp-better-rollup": "^4.0.1",
         "gulp-clean-css": "^4.3.0",
+        "gulp-nodemon": "^2.5.0",
         "gulp-sass": "^4.1.0",
         "gulp-sourcemaps": "^2.6.5",
         "gulp-uglify": "^3.0.2",
         "rimraf": "^3.0.2",
-        "rollup": "^2.21.0",
+        "rollup": "^2.22.1",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0"
