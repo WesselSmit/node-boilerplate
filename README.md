@@ -13,13 +13,13 @@ git clone https://github.com/WesselSmit/node-boilerplate.git
 2. Navigate to your local repository
 
 ```sh
-cd REPOSITORY
+cd REPOSITORY-NAME
 ```
 
 3. Install and setup package.json
 
 ```sh
-sh init.sh PROJECT-NAME
+sh init.sh REPOSITORY-NAME
 ```
 
 6. Run application (see [scripts](#scripts))
