@@ -6,10 +6,6 @@
 mv package.template.json package.json
 echo "Deleted package.template.json and created package.json"
 
-# # Setup fresh git history
-# rm -fr .git
-# git init
-
 # Replace placeholder project-name with passed 
 if [ $1 ]; then
     sed -i "" "s/project-name/$1/g" "package.json"
