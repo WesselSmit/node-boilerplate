@@ -1,7 +1,16 @@
 {
     "name": "node-boilerplate",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Boilerplate for nodeJS applications",
+    "keywords": ["node", "boilerplate"],
+    "author": "Wessel Smit",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WesselSmit/node-boilerplate.git"
+    },
+    "homepage": "https://github.com/WesselSmit/node-boilerplate#readme",
+    "bugs": "https://github.com/WesselSmit/node-boilerplate/issues",
     "main": "server.js",
     "scripts": {
         "prestart": "npm run build",
@@ -12,16 +21,6 @@
         "dev": "gulp watcher",
         "clean": "rimraf static/dist"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/WesselSmit/node-boilerplate.git"
-    },
-    "author": "Wessel Smit",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/WesselSmit/node-boilerplate/issues"
-    },
-    "homepage": "https://github.com/WesselSmit/node-boilerplate#readme",
     "dependencies": {
         "core-js": "^3.6.5",
         "dotenv": "^8.2.0",
