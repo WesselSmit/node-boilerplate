@@ -17,5 +17,5 @@ npm install
 echo "Installed npm dependencies."
 
 # Remove setup.sh 
-rm setup.sh
+rm init.sh
 echo "Setup done."
