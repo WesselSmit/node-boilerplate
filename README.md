@@ -4,28 +4,11 @@ A template repository to quickly setup a NodeJS application using ExpressJS
 
 ## Install Notes
 
-1. Clone the repository
-
 ```sh
-git clone https://github.com/WesselSmit/node-boilerplate.git
-```
-
-2. Navigate to your local repository
-
-```sh
-cd REPOSITORY-NAME
-```
-
-3. Install and setup package.json
-
-```sh
-sh init.sh REPOSITORY-NAME
-```
-
-6. Run application (see [scripts](#scripts))
-
-```sh
-npm run dev
+$ git clone https://github.com/WesselSmit/node-boilerplate.git REPOSITORY-NAME 
+$ cd REPOSITORY-NAME
+$ sh init.sh REPOSITORY-NAME 
+$ npm run dev # see 'Scripts' section in readme
 ```
 
 ## Scripts
