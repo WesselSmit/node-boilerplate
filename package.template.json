@@ -1,0 +1,49 @@
+{
+    "name": "project-name",
+    "version": "0.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "Wessel Smit",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WesselSmit/project-name.git"
+    },
+    "homepage": "https://github.com/WesselSmit/project-name#readme",
+    "bugs": "https://github.com/WesselSmit/project-name/issues",
+    "main": "server.js",
+    "scripts": {
+        "prestart": "npm run build",
+        "start": "node server",
+        "prebuild": "npm run clean",
+        "build": "gulp builder",
+        "predev": "npm run clean",
+        "dev": "gulp watcher",
+        "clean": "rimraf static/dist"
+    },
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.3",
+        "express": "^4.17.1",
+        "regenerator-runtime": "^0.13.5"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.10.5",
+        "@babel/preset-env": "^7.10.4",
+        "browser-sync": "^2.26.10",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-better-rollup": "^4.0.1",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-nodemon": "^2.5.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.22.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0"
+    }
+}
