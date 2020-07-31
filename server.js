@@ -7,7 +7,7 @@ const app = express()
 
 
 app
-    .use(express.static('static'))
+    .use(express.static('public'))
     .set('view engine', 'ejs')
     .set('views', 'views/templates')
     .get('/', (req, res) => res.render('index'))

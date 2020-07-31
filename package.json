@@ -19,7 +19,7 @@
         "build": "gulp builder",
         "predev": "npm run clean",
         "dev": "gulp watcher",
-        "clean": "rimraf static/dist"
+        "clean": "rimraf public/dist"
     },
     "dependencies": {
         "core-js": "^3.6.5",

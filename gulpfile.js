@@ -29,7 +29,7 @@ task('styles', () => {
         .pipe(autoprefixer({ cascade: false }))
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(sourcemaps.write('./sourcemaps'))
-        .pipe(dest('./static/dist/styles'))
+        .pipe(dest('./public/dist/styles'))
 })
 
 
@@ -49,7 +49,7 @@ task('scripts', () => {
         }, { format: 'iife', }))
         .pipe(uglify())
         .pipe(sourcemaps.write('./sourcemaps'))
-        .pipe(dest('./static/dist/scripts'))
+        .pipe(dest('./public/dist/scripts'))
 })
 
 
@@ -64,7 +64,7 @@ const extToWatch = {
 task('watch', done => {
     return nodemon({
             script: 'server.js',
-            ignore: ['static/dist', 'gulpfile.js'],
+            ignore: ['public/dist', 'gulpfile.js'],
             ext: '*',
             tasks: changedFiles => {
                 const tasks = []
