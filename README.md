@@ -24,7 +24,7 @@ This boilerplate comes with a collection of npm scripts to make your life easier
 
 ### Templating Engine
 
-This boilerplate uses the [EJS](https://ejs.co/) templating engine by default, uf you want to use a different templating engine you'll need to make some adjustments:
+This boilerplate uses the [EJS](https://ejs.co/) templating engine by default, if you want to use a different templating engine you'll need to make some adjustments:
 
 1. Set your templating engine as default in Express
 
