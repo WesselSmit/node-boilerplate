@@ -4,6 +4,8 @@ A template repository to quickly setup a NodeJS application using ExpressJS
 
 ## Installation
 
+Replace `REPOSITORY-NAME` with the name of your github-repository. Use hyphens `-` instead of spaces.
+
 ```sh
 $ git clone https://github.com/WesselSmit/node-boilerplate.git REPOSITORY-NAME 
 $ cd REPOSITORY-NAME
