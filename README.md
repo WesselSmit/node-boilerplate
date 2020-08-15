@@ -2,7 +2,7 @@
 
 A template repository to quickly setup a NodeJS application using ExpressJS
 
-## Install Notes
+## Installation
 
 ```sh
 $ git clone https://github.com/WesselSmit/node-boilerplate.git REPOSITORY-NAME 
