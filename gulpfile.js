@@ -94,7 +94,7 @@ task('serve', done => {
     browserSync.init({
         proxy: `localhost:${port}`,
         browser: 'google chrome',
-        port: 7000
+        port: port + 1
     })
     done()
 })
