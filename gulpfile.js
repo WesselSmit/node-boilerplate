@@ -43,7 +43,7 @@ task('scripts', () => {
         .pipe(rollup({
             plugins: [
                 resolve(),
-                babel({ exclude: 'node_modules/**' }),
+                babel(),
                 commonjs()
             ]
         }, { format: 'iife', }))
